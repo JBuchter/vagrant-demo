@@ -31,7 +31,7 @@ Vagrant.configure('2') do |config|
         # azure.winrm_http_port = 'A VALID PUBLIC PORT' # customize the winrm http port, insted of 5985
         azure.tcp_endpoints = '3389:53389' # opens the Remote Desktop internal port that listens on public port 53389. Without this, you cannot RDP to a Windows VM.
     end
-    config.vm.provision 'shell', path: "shell/main.cmd"
-    config.vm.provision 'shell', path: "shell/InstallBoxstarter.bat"
-    config.vm.provision 'shell', path: "shell/RunBoxstarterGist.bat"
+    config.vm.provision 'shell', path: "shell/main.cmd", name: "Chocolatey Install"
+    # config.vm.provision 'shell', path: "shell/InstallBoxstarter.bat", name:"Boxstarter Install"
+    config.vm.provision 'shell', path: "shell/DevTools.bat", name: "Development Software"
 end

@@ -1,0 +1,13 @@
+Enable-RemoteDesktop
+Set-CornerNavigationOptions -EnableUsePowerShellOnWinX
+Set-ExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowFullPathInTitleBar
+Set-TaskbarOptions -Size Small -Lock
+
+chocolatey feature enable -n=allowGlobalConfirmation
+
+choco install fiddler4
+choco install atom
+choco install googlechrome
+choco install visualstudiocode
+
+chocolatey feature disable -n=allowGlobalConfirmation

@@ -2,6 +2,7 @@ Vagrant.configure('2') do |config|
     config.vm.box = 'azure'
     config.vm.boot_timeout = 3600
 
+    #Configuration for Azure VM provider.
     config.vm.provider :azure do |azure, override|
         # Mandatory Settings
         azure.mgmt_certificate = '.\certs\cert.pem'
@@ -31,7 +32,9 @@ Vagrant.configure('2') do |config|
         # azure.winrm_http_port = 'A VALID PUBLIC PORT' # customize the winrm http port, insted of 5985
         azure.tcp_endpoints = '3389:53389' # opens the Remote Desktop internal port that listens on public port 53389. Without this, you cannot RDP to a Windows VM.
     end
+
+    #Configure provisioners
     config.vm.provision 'shell', path: "shell/main.cmd", name: "Chocolatey Install"
-    # config.vm.provision 'shell', path: "shell/InstallBoxstarter.bat", name:"Boxstarter Install"
     config.vm.provision 'shell', path: "shell/DevTools.bat", name: "Development Software"
+
 end

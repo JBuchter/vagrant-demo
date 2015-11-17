@@ -4,7 +4,7 @@ Vagrant.configure('2') do |config|
 
     config.vm.provider :azure do |azure, override|
         # Mandatory Settings
-        azure.mgmt_certificate = 'c:\certs\cert.pem'
+        azure.mgmt_certificate = '.\certs\cert.pem'
         azure.mgmt_endpoint = 'https://management.core.windows.net'
         azure.subscription_id = 'f6a5d374-621d-4294-940d-d9ddf9e28e86'
         azure.vm_image = 'progressive-dev-win10-winrm-enabled'
